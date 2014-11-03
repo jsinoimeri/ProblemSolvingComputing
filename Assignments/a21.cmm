@@ -1,0 +1,85 @@
+/***************************
+ *   By: Jeton Sinoimeri   *
+ *   Assignment 2 Q1       *
+ *   Version: 1.0          *
+ ***************************/
+{
+
+  // Variables
+  double x, // the x-value
+         y, // the y-value
+         step, // step variable determines whether to go up by 1 or down by 1 depending on the sign of y-value
+         counter, // keeps count how many times answer has been multiplied by x
+         answer; // records the answer and at the end of program it is displayed
+
+  // Input statements
+  cout << "Enter a real number value for x: ";
+  cin >> x;
+
+  cout << "Enter an integer value for y: ";
+  cin >> y;
+
+  // this condition checks if y is an int or not
+  if (isInt(y)) {
+
+    if (x == 0) {
+
+      if (y <= 0) {
+
+        // If x is 0 and y is either 0 or negative, then undefined is outputed
+        cout << "Undefined" << endl;
+
+      } else {
+
+        // If x is 0 and y is > 0 then 0 is outputed
+        cout << 0 << endl;
+
+      } // end if
+
+    } else {
+
+      // answer is assigned a value 1 in case y is 0 and x is anything but 0
+      answer = 1;
+
+      if (y != 0) {
+
+        // counter and step are assigned their values
+        counter = 0;
+        step = 1;
+
+        // if y is negative, then step becomes -1, otherwise it remains positive 1
+        if (y < 0) {
+          step = -1;
+        } // end if
+
+        /* x to the exponent y is calculated and the result is stored in answer variable
+ */
+        while (counter != y) {
+          answer = answer * x;
+          counter = counter + step;
+
+        } // end while
+
+        // if y is negative, then the answer becomes 1/answer
+        if (y < 0) {
+
+          /* to make sure integer division does not occur the floating decimal point (1.0) is divided by the answer
+             even though in c minus minus int division does not occur but in c++ it does */
+          answer = 1.0 / answer;
+
+        } // end if
+
+      } // end if
+
+      // the answer is outputed
+      cout << "The answer is " << answer << endl;
+
+    } // end if
+
+  } else {
+    // If y is not an integer than an error is outputed and the program quits
+    cout << "Error! y has to be an integer" << endl;
+
+  } // end if
+
+}
