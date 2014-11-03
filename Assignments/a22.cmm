@@ -1,0 +1,73 @@
+/***************************
+ *   By: Jeton Sinoimeri   *
+ *   Assignment 2 Q2       *
+ *   Version: 1.0          *
+ ***************************/
+
+{
+
+  // Variables
+  double room_di1, // the length of the room
+         room_di2, // the width of the room
+         carpet_di1, // the length of the carpet
+         carpet_di2; // the width of the carpet
+
+
+  // Input statements for room's dimensions
+  cout << "Enter the room's dimensions: ";
+  cin >> room_di1
+      >> room_di2;
+
+  /* if room's dimensions are invalid, the code in while loop will loop
+     ouput an error message and ask for input until the room's dimensions
+     are valid */
+  while (room_di1 <= 0 || room_di2 <= 0) {
+    cout << "Those dimensions are invalid" << endl;
+    cout << "Enter the rooms dimensions again: ";
+    cin >> room_di1
+        >> room_di2;
+  } // end while
+
+  // Input statements for carpet's dimensions
+  cout << "Enter the carpet's dimensions (0 0 to stop): ";
+  cin >> carpet_di1
+      >> carpet_di2;
+
+  // if both carpet's length and width are 0 then the program quits
+  while (carpet_di1 != 0 || carpet_di2 != 0) {
+
+    // checks if the carpet is able to fit into the room or not
+    if ((room_di1 <= carpet_di1 && room_di2 <= carpet_di2) || (room_di1 <= carpet_di2 && room_di2 <= carpet_di1)) {
+
+      // checks if the carpet is a perfect match and outputs it is a perfect match
+      if ((room_di1 == carpet_di1 || room_di1 == carpet_di2) && (room_di2 == carpet_di1 || room_di2 == carpet_di2)) {
+        cout << "The carpet is a perfect fit" << endl;
+
+      } else {
+        /* If the carpet has larger dimensions then the room, 
+           the program outputs the carpet can be trimmed */
+        cout << "The carpet can be trimmed to size" << endl;
+      } // end if
+
+    } else {
+
+      // checks if one or both of the carpet's inputed dimensions are invalid
+      if (((carpet_di1 <= 0 || carpet_di2 <= 0) && carpet_di1 != carpet_di2) || ((carpet_di2 < 0 ||carpet_di1 < 0) && carpet_di2 == carpet_di1)) {
+        cout << "Those dimensions are invalid." << endl;
+
+      } else {
+
+        /* If the carpet's dimensions are smaller than the room
+           the program outputs the carpet cannot be used */
+        cout << "The carpet cannot be used" << endl;
+      } // end if
+
+    } // end if
+    // Input statements for carpet's dimensions
+    cout << "Enter the carpet's dimensions (0 0 to stop): ";
+    cin >> carpet_di1
+        >> carpet_di2;
+
+  } // end while
+
+}
