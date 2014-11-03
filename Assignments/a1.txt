@@ -1,0 +1,102 @@
+By: Jeton Sinoimeri
+
+
+
+Q1
+
+while (displayed value does not equal desired value) do
+	move the thumbwheel up
+
+endwhile
+
+
+Q2
+
+if (units equal 9) then
+	
+	if (tents equal 9) then
+		
+		move hundreds thumbwheel up
+	
+	endif
+	
+	move tens thumbwheel up
+	
+endif
+	
+move units thumbwheel up
+
+
+Q3
+
+while (displayed value does not equal desired value) do
+	
+	if (it's best to go up) then
+		move the thumbwheel up
+	
+	else
+		move the thumbwheel down
+	
+	endif
+
+endwhile
+
+
+
+Q4
+
+create the variable "x"
+create the variable "y"
+
+assign x a real value
+assign y an integer value
+
+if (x equals 0) then
+	if (y is less than or equal to 0) then
+		output "undefined"
+
+   	else
+		output "0"
+
+	endif
+
+else:
+	
+	create the variable "answer"
+	assign answer the value "1"
+
+	if (y does not equal 0) then
+		
+		create the variable "step"
+		create the variable "counter"
+
+		assign counter the value "0"
+		assign step the value "1"
+		
+		
+		if (y is less than 0) then
+			assign step the value "-1"
+
+		endif
+
+
+		while (counter does not equal y) do
+			compute answer * x
+			assign computed value to answer
+			
+			compute counter + step
+			assign computed value to counter
+
+		endwhile
+
+		if (y is less than 0) then
+			compute 1 / answer
+			assign computed value to answer
+		
+		endif
+	
+	endif
+	
+	ouput answer
+
+endif
